@@ -89,7 +89,6 @@ router.get('/result', function(req, res, next) {
           console.log(`Nombre de trajets au départ de ${journey[0].departure} : `, journey.length);
       }
     )
-
   }
 
 
