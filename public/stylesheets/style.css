@@ -26,3 +26,9 @@ padding-right: 1%;
 .navbar {
   width: 100vw;
 }
+
+.row {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
