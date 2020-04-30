@@ -1,8 +1,28 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-image:linear-gradient(#C7DEE9, #357FAE);
 }
 
 a {
   color: #00B7FF;
+}
+
+.home {
+  
+  color: #FFFFFF;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.logo{
+width: 50px;
+padding-right: 1%;
+
+}
+
+.navbar {
+  width: 100vw;
 }
