@@ -8,10 +8,9 @@ const userModel = require ('../models/users')
 var city = ["Paris","Marseille","Nantes","Lyon","Rennes","Melun","Bordeaux","Lille"]
 var date = ["2018-11-20","2018-11-21","2018-11-22","2018-11-23","2018-11-24"]
 
-
-
 /* GET home page. */
 router.get('/', function(req, res, next) {
+  console.log('coucou')
   res.render('index', { title: 'Express' });
 });
 
@@ -42,7 +41,9 @@ router.post('/sign-up', async function(req,res,next){
   } else {
     res.redirect('/')
   }
-  
+})
+router.get('/homepage', async function (req, res, next) {
+  res.render('homepage')
 })
 
 router.post('/sign-in', async function(req,res,next){
@@ -61,7 +62,7 @@ router.post('/sign-in', async function(req,res,next){
   } else {
     res.render('/')
   }
-  
+
 })
 
 // Remplissage de la base de donnée, une fois suffit
