@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 const mongoose = require('mongoose');
 const journeyModel = require('../models/journey')
+const userModel = require ('../models/users')
 
 
 var city = ["Paris","Marseille","Nantes","Lyon","Rennes","Melun","Bordeaux","Lille"]
@@ -14,6 +15,54 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
+router.post('/sign-up', async function(req,res,next){
+
+  var searchUser = await userModel.findOne({
+    email: req.body.emailFromFront
+  })
+  
+  if(!searchUser){
+    var newUser = new userModel({
+      firstname: req.body.firstnameFromFront,
+      name: req.body.nameFromFront,
+      email: req.body.emailFromFront,
+      password: req.body.passwordFromFront,
+    })
+  
+    var newUserSave = await newUser.save();
+  
+    req.session.user = {
+      name: newUserSave.name,
+      id: newUserSave._id,
+    }
+  
+    console.log(req.session.user)
+  
+    res.redirect('/homepage')
+  } else {
+    res.redirect('/')
+  }
+  
+})
+
+router.post('/sign-in', async function(req,res,next){
+
+  var searchUser = await userModel.findOne({
+    email: req.body.emailFromFront,
+    password: req.body.passwordFromFront
+  })
+
+  if(searchUser!= null){
+    req.session.user = {
+      name: searchUser.name,
+      id: searchUser._id,
+    }
+    res.redirect('/homepage')
+  } else {
+    res.render('/')
+  }
+  
+})
 
 // Remplissage de la base de donnée, une fois suffit
 router.get('/save', async function(req, res, next) {
