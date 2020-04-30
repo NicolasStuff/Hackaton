@@ -1,7 +1,8 @@
 var express = require('express');
 var router = express.Router();
 const journeyModel = require('../models/journey')
-const userModel = require ('../models/users')
+const userModel = require('../models/users')
+const destinationModel = require('../models/destination')
 
 var city = ["Paris","Marseille","Nantes","Lyon","Rennes","Melun","Bordeaux","Lille"]
 var date = ["2018-11-20","2018-11-21","2018-11-22","2018-11-23","2018-11-24"]
@@ -63,8 +64,32 @@ router.post('/sign-in', async function(req,res,next){
 
 })
 
-router.get('/homepage', async function (req, res, next) {
-  res.render('homepage')
+router.get('/homepage', function (req, res, next) {
+  res.render("homepage")
+})
+
+router.post('/research', async function (req, res, next) {
+
+  var exist = await destinationModel.findOne({
+    departure: req.body.wherefromfront,
+    arrival: req.body.tofromfront,
+  })
+
+  if(exist == true) {
+    var destination = new destinationModel({
+      departure: req.body.wherefromfront,
+      arrival: req.body.tofromfront,
+    })
+
+    await destiantion.save();
+    res.redirect('resultats', {destination})
+  } else {
+  res.render('homepage', {destination})
+  }
+})
+
+router.get('/resultats', async function (req, res, next) {
+  res.render("resultats")
 })
 
 // Remplissage de la base de donnée, une fois suffit
@@ -90,7 +115,6 @@ router.get('/save', async function(req, res, next) {
       });
        
        await newUser.save();
-      
     }
 
   }
