@@ -5,4 +5,4 @@ var destinationSchema = mongoose.Schema({
     arrival: String,
   });
   
-module.exports = mongoose.model('destination', destinationSchema);
+module.exports = mongoose.model('destinationModel', destinationSchema);

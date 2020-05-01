@@ -30,23 +30,14 @@
         <div class="row-resultats d-flex">
             <table class="table border">
                 <tbody>
+                  <%  if(var i = 0; i < destination.length; i++) { %>
                   <tr>
-                    <td>Paris - Lille</td>
-                    <td>train departure at 3:00pm</td>
-                    <td>93 €</td>
+                    <td><%= destination[i].wherefromfront%> - <%= destination[i].tofromfront %></td>
+                    <td>train departure at 3:00pm(completer)</td>
+                    <td>93 € (completer)</td>
                     <td><button type="submit" class="btn btn-danger mb-2">Submit</button></td>
                   </tr>
-                  <tr>
-                    <td>Paris - Lille</td>
-                    <td>train departure at 3:00pm</td>
-                    <td>93 €</td>
-                    <td><button type="submit" class="btn btn-danger mb-2">Submit</button></td>
-                  </tr>
-                  <tr>
-                    <td>Paris - Lille</td>
-                    <td>train departure at 3:00pm</td>
-                    <td>93 €</td>
-                    <td><button type="submit" class="btn btn-danger mb-2">Submit</button></td>
+                  <% } %>
                   </tr>
                 </tbody>
               </table>

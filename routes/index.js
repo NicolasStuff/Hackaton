@@ -19,6 +19,7 @@ try{
   })
   
   if(!searchUser){
+    
     var newUser = new userModel({
       firstname: req.body.firstnameFromFront,
       name: req.body.nameFromFront,
@@ -35,7 +36,7 @@ try{
   
     console.log(req.session.user)
   
-    res.redirect('/homepage')
+    res.redirect('/research')
   } else {
     res.redirect('/')
   }
@@ -57,40 +58,34 @@ router.post('/sign-in', async function(req,res,next){
       name: searchUser.name,
       id: searchUser._id,
     }
-    res.redirect('/homepage')
+    res.redirect('/research')
   } else {
     res.render('login')
   }
-
 })
 
-router.get('/homepage', function (req, res, next) {
-  res.render("homepage")
-})
-
-router.post('/research', async function (req, res, next) {
-
-  var exist = await destinationModel.findOne({
+router.get('/research', async function (req, res, next) {
+  
+  var newJourney = new destinationModel({
     departure: req.body.wherefromfront,
     arrival: req.body.tofromfront,
   })
 
-  if(exist == true) {
-    var destination = new destinationModel({
-      departure: req.body.wherefromfront,
-      arrival: req.body.tofromfront,
-    })
+  var newJourneySave = await newJourney.save();
 
-    await destiantion.save();
-    res.redirect('resultats', {destination})
-  } else {
-  res.render('homepage', {destination})
+  req.session.result = {
+    departure: newJourneySave.departure,
+    arrival: newJourneySave.arrival,
   }
+  console.log(req.session.result)
+  
+  res.redirect('/resultats')
 })
 
 router.get('/resultats', async function (req, res, next) {
   res.render("resultats")
 })
+
 
 // Remplissage de la base de donnée, une fois suffit
 router.get('/save', async function(req, res, next) {
@@ -139,8 +134,6 @@ router.get('/result', function(req, res, next) {
       }
     )
   }
-
-
   res.render('index', { title: 'Express' });
 });
 
