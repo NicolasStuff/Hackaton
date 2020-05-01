@@ -7,10 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="/stylesheets/style.css">
-  </head>
+  </head> 
+
   <body>
-<div>
-  <nav class="navbar navbar-expand-xl navbar-light bg-light col-12" style="background-color: #e3f2fd;">
+  <div>
+    <nav class="navbar navbar-expand-xl navbar-light bg-light col-12" style="background-color: #e3f2fd;">
       <img class="logo" src="/images/train.png">
       <a class="navbar-brand" href="#">Ticketac</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -19,53 +20,53 @@
       <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNavAltMarkup">
         <div class="navbar-nav">
           <a class="nav-item nav-link active text-danger font-weight-bold" href="#">Connection <span class="sr-only">(current)</span></a>
-          <a class="nav-item nav-link text-dark font-weight-bold" href="#">My last trips</a>
+          <a class="nav-item nav-link text-dark" href="#">My last trips</a>
         </div>
       </div>
     </nav>
 
-      <div class="home">
+    <div class="container col-12 col-lg-6">
+      <div class="row-trips">
+        <ul class="list-group">
+          <h4 class="titleForm">Tickets available on 02/08 :</h4>
+          <li class="tabtrips list-group-item d-flex justify-content-between align-items-center">
+            <span class="font-weight-bold">Date</span>
+            <span class="font-weight-bold">Journey</span>
+            <span class="font-weight-bold">Departure Time</span>
+            <span class="font-weight-bold">Price</span>
+         </li>
+          <li class="tabtrips list-group-item d-flex justify-content-between align-items-center">
+            <span class="font-weight-bold">Date</span>
+            <span class="font-weight-bold">Journey</span>
+            <span class="font-weight-bold">Departure Time</span>
+            <span class="font-weight-bold">Price</span>
+          </li>
+          <li class="tabtrips list-group-item d-flex justify-content-between align-items-center">
+            <span class="font-weight-bold">Date</span>
+            <span class="font-weight-bold">Journey</span>
+            <span class="font-weight-bold">Departure Time</span>
+            <span class="font-weight-bold">Price</span>
+          </li>
+        </ul>
+        
+    </div>
+        
+        
+        
 
-        <div class="row-main" >
-
-          <!-- SIGN IN -->
-          
-          <form action="/research" method="POST">
-            <h4 class="titleForm">One Way Ticket :</h4>
-            <div class="form-row d-flex">
-              <div class="col-12 col-sm-4">
-                <label class="sr-only" for="inlineFormInput">From</label>
-                <input type="text" name="wherefromfront" class="form-control mb-2" id="inlineFormInput" placeholder="From">
-              </div>
-              <div class="col-12 col-sm-4">
-                <label class="sr-only" for="inlineFormInput">To</label>
-                <div class="input-group mb-2">
-                  <div class="input-group-prepend">
-                  </div>
-                  <input type="text" name="tofromfront" class="form-control" id="inlineFormInput" placeholder="To">
-                </div>
-              </div>
-              <div class="input-group date col-12 col-sm-3 mb-2" id='datetimepicker1'>
-                <input type="date" id="birthday" name="birthday">
-              </div>
-              <div class="col-12 col-sm-1">
-                <button type="submit" class="btn btn-danger mb-2">Submit</button>
-              </div>
-            </div>
-          </form>
-          <div class="landmark col-12 text-center">
-          <img src="/images/landmark.png" alt="" width="250px">
-            </div>
-
-          </div>
-        </div>
       </div>
+    </div>
+
+          
+
+        
+      
 </div>
 
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-    
   </body>
 </html>
+
