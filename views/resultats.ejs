@@ -32,9 +32,9 @@
            <% for(var i = 0; i < data.length; i++) { %> 
             <li class="tabresults list-group-item d-flex justify-content-between align-items-center">
               <span class="font-weight-bold"><%= data[i].departure%> - <%= data[i].arrival %></span>
-              <span class="text">Train departure at 15:00</span>
+              <span class="text">Train departure at <%= data[i].departureTime%> </span>
               <div>
-                <span class="font-weight-bold">93 €</span>
+                <span class="font-weight-bold"><%= data[i].price%> €</span>
                 <button type="submit" class="btn btn-danger mb-2">OK</button>
               </div>
             </li>

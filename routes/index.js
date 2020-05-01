@@ -2,7 +2,6 @@ var express = require('express');
 var router = express.Router();
 const journeyModel = require('../models/journey')
 const userModel = require('../models/users')
-const destinationModel = require('../models/destination')
 
 var city = ["Paris","Marseille","Nantes","Lyon","Rennes","Melun","Bordeaux","Lille"]
 var date = ["2018-11-20","2018-11-21","2018-11-22","2018-11-23","2018-11-24"]
@@ -65,19 +64,37 @@ router.post('/sign-in', async function(req,res,next){
 })
 /*  POST research. */
 router.post('/research', async function (req, res, next) {
-  console.log(req.body)
+  //console.log(req.body)
 
   var data = await journeyModel.find({
     departure: req.body.departure,
     arrival: req.body.arrival,
+    date: req.body.birthday,
+    //departureTime: req.body.departureTime,
+    //price: req.body.price,
   })
+
   console.log(data)
 
   res.render('resultats', {data})
 })
 
 router.get('/resultats', async function (req, res, next) {
-  res.render("resultats")
+  
+  var data = await journeyModel.find({
+    departure: req.body.departure,
+    arrival: req.body.arrival,
+    date: req.body.birthday,
+    departureTime: req.body.departureTime,
+    price: req.body.price,
+  })
+
+  console.log(req.body)
+  res.render("tickets", {data})
+})
+
+router.get('/tickets', async function (req, res, next) {
+  res.render("tickets")
 })
 
 
