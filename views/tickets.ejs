@@ -23,16 +23,21 @@
               <span class="font-weight-bold">Departure Time</span>
               <span class="font-weight-bold">Price</span>
            </li>
+           <% var totalCmd = 0 %>
+           <% for(var i = 0; i < data.length; i++) { %> 
             <li class="tabtrips list-group-item d-flex justify-content-between align-items-center border-0">
-                <span class="font-weight-bold">1</span>
-                <span class="font-weight-bold">Journey</span>
-                <span class="font-weight-bold">Date</span>
-                <span class="font-weight-bold">Departure Time</span>
-                <span class="font-weight-bold">93€</span>
+                <span class="font-weight-bold"><%= i + 1%></span>
+                <span class="font-weight-bold"><%= data[i].departure%> - <%= data[i].arrival %></span>
+                <span class="font-weight-bold"><%= data[i].date%></span>
+                <span class="font-weight-bold"><%= data[i].departureTime%></span>
+                <span class="font-weight-bold"><%= data[i].price%> €</span>
             </li>
-            <li class="tabtrips list-group-item d-flex justify-content-between align-items-center border-0 bg-danger">
+          <% var totalCmd = data[i].price + totalCmd;
+          console.log(totalCmd) %>
+          <% } %>
+            <li class="tabtrips list-group-item d-flex justify-content-between align-items-center border-0">
               <span class="font-weight-bold">Total</span>
-              <span class="text">93€</span>
+              <span class="text"><%= totalCmd %>€</span>
           </li>
           </ul>
             <div class="d-flex justify-content-end">
@@ -41,9 +46,6 @@
             
       
       </div>
-          
-          
-          
   
         </div>
       </div>

@@ -19,16 +19,16 @@
         <h4 class="titleForm">Oops! No train available...</h4>
         <button type="submit" class="btn btn-danger mb-2 col-2">Home</button>
     </div>
-      <%} else {%> 
+      <%} else {%>
         <ul class="list-group">
           <h4 class="titleForm">Tickets available on 02/08 :</h4>
-           <% for(var i = 0; i < data.length; i++) { %> 
+           <% for(var i = 0; i < data.length; i++) { %>
             <li class="tabresults list-group-item d-flex justify-content-between align-items-center">
               <span class="font-weight-bold"><%= data[i].departure%> - <%= data[i].arrival %></span>
               <span class="text">Train departure at <%= data[i].departureTime%> </span>
               <div>
                 <span class="font-weight-bold"><%= data[i].price%> €</span>
-                <button type="submit" class="btn btn-danger mb-2">OK</button>
+                <a href="/resultats?departure=<%=data[i].departure%>&arrival=<%=data[i].arrival%>&date=<%=data[i].date%>&departureTime=<%=data[i].departureTime%>&price=<%= data[i].price%> "><button type="submit" class="btn btn-danger mb-2">OK</button></a>
               </div>
             </li>
             <% } %>
