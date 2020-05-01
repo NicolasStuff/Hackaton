@@ -81,15 +81,15 @@ router.post('/research', async function (req, res, next) {
 
 router.get('/resultats', async function (req, res, next) {
   
-  var data = await journeyModel.find({
-    departure: req.body.departure,
-    arrival: req.body.arrival,
-    date: req.body.birthday,
-    departureTime: req.body.departureTime,
-    price: req.body.price,
+  var data = await req.session.data.push({
+    departure: req.query.departure,
+    arrival: req.query.arrival,
+    date: req.query.birthday,
+    departureTime: req.query.departureTime,
+    price: req.query.price,
   })
 
-  console.log(req.body)
+  console.log(data)
   res.render("tickets", {data})
 })
 
