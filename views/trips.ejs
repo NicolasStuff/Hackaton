@@ -26,21 +26,34 @@
     </nav>
 
     <div class="container col-12 col-lg-6">
-      <div class="row-results">
+      <div class="row-trips">
         <ul class="list-group">
           <h4 class="titleForm">Tickets available on 02/08 :</h4>
-           <% for(var i = 0; i < data.length; i++) { %> 
-            <li class="tabresults list-group-item d-flex justify-content-between align-items-center">
-              <span class="font-weight-bold"><%= data[i].departure%> - <%= data[i].arrival %></span>
-              <span class="text">Train departure at 15:00</span>
-              <div>
-                <span class="font-weight-bold">93 €</span>
-                <button type="submit" class="btn btn-danger mb-2">OK</button>
-              </div>
-            </li>
-          <% } %> 
+          <li class="tabtrips list-group-item d-flex justify-content-between align-items-center">
+            <span class="font-weight-bold">Date</span>
+            <span class="font-weight-bold">Journey</span>
+            <span class="font-weight-bold">Departure Time</span>
+            <span class="font-weight-bold">Price</span>
+         </li>
+          <li class="tabtrips list-group-item d-flex justify-content-between align-items-center">
+            <span class="font-weight-bold">Date</span>
+            <span class="font-weight-bold">Journey</span>
+            <span class="font-weight-bold">Departure Time</span>
+            <span class="font-weight-bold">Price</span>
+          </li>
+          <li class="tabtrips list-group-item d-flex justify-content-between align-items-center">
+            <span class="font-weight-bold">Date</span>
+            <span class="font-weight-bold">Journey</span>
+            <span class="font-weight-bold">Departure Time</span>
+            <span class="font-weight-bold">Price</span>
+          </li>
         </ul>
-        </div>
+        
+    </div>
+        
+        
+        
+
       </div>
     </div>
 

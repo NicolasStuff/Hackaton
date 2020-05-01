@@ -58,31 +58,34 @@ router.post('/sign-in', async function(req,res,next){
       name: searchUser.name,
       id: searchUser._id,
     }
-    res.redirect('/research')
+    res.render('research')
   } else {
     res.render('login')
   }
 })
 
-router.get('/research', async function (req, res, next) {
+router.post('/research', async function (req, res, next) {
   
-  var newJourney = new destinationModel({
-    departure: req.body.wherefromfront,
-    arrival: req.body.tofromfront,
+  //var data = req.session.result = {
+  //  departure: newJourneySave.departure,
+  //  arrival: newJourneySave.arrival,
+  //}
+  //console.log(data)
+
+  console.log(req.body)
+
+  var data = await journeyModel.find({
+    departure: req.body.departure,
+    arrival: req.body.arrival,
   })
+  console.log(data)
 
-  var newJourneySave = await newJourney.save();
-
-  req.session.result = {
-    departure: newJourneySave.departure,
-    arrival: newJourneySave.arrival,
-  }
-  console.log(req.session.result)
-  
-  res.redirect('/resultats')
+  res.render('resultats', {data})
 })
 
 router.get('/resultats', async function (req, res, next) {
+  
+
   res.render("resultats")
 })
 
