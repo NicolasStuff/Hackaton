@@ -27,6 +27,12 @@
 
     <div class="container col-12 col-lg-6">
       <div class="row-results">
+      <% if(data.length == 0){%>
+      <div class="d-flex flex-column justify-content-between align-items-center">
+        <h4 class="titleForm">Oops! No train available...</h4>
+        <button type="submit" class="btn btn-danger mb-2 col-2">Home</button>
+    </div>
+      <%} else {%> 
         <ul class="list-group">
           <h4 class="titleForm">Tickets available on 02/08 :</h4>
            <% for(var i = 0; i < data.length; i++) { %> 
@@ -38,8 +44,9 @@
                 <button type="submit" class="btn btn-danger mb-2">OK</button>
               </div>
             </li>
-          <% } %> 
+            <% } %>
         </ul>
+        <% } %> 
         </div>
       </div>
     </div>
