@@ -80,8 +80,9 @@ router.post('/research', async function (req, res, next) {
 })
 
 router.get('/resultats', async function (req, res, next) {
-  
-  req.session.data = []
+  if(req.session.data == undefined) {
+    req.session.data = []
+  }
 
   req.session.data.push({
     departure: req.query.departure,
@@ -96,8 +97,7 @@ router.get('/resultats', async function (req, res, next) {
 })
 
 router.get('/tickets', async function (req, res, next) {
-  
-  req.session.data = []
+  console.log('coucou');
 
   for( var i=0; i < req.session.data.length; i++){
     req.session.data.push({

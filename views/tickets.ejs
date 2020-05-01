@@ -32,16 +32,18 @@
                 <span class="font-weight-bold"><%= data[i].departureTime%></span>
                 <span class="font-weight-bold"><%= data[i].price%> €</span>
             </li>
-          <% var totalCmd = data[i].price + totalCmd; %>
-          <% } %>
+            <% var totalCmd = data[i].price + totalCmd; %>
+            
+          </ul>
+            <% } %>
             <li class="tabtrips list-group-item d-flex justify-content-between align-items-center border-0">
               <span class="font-weight-bold">Total</span>
               <span class="text"><%= totalCmd %>€</span>
           </li>
-          </ul>
-            <div class="d-flex justify-content-end">
-              <button type="submit" class="btn btn-danger mb-2 col-1 d-flex justify-content-center">Confirm</button>
-            </div>
+          <div class="d-flex justify-content-end">
+            <button type="submit" class="btn btn-danger mb-2 col-1 d-flex justify-content-center">Confirm</button>
+           </div>
+           
       </div>
   
         </div>
