@@ -28,7 +28,7 @@
             <li class="tabtrips list-group-item d-flex justify-content-between align-items-center border-0">
                 <span class="font-weight-bold"><%= i + 1%></span>
                 <span class="font-weight-bold"><%= data[i].departure%> - <%= data[i].arrival %></span>
-                <span class="font-weight-bold"><%= data[i].date%></span>
+                <span class="font-weight-bold"><%= dateFormat(data[i].date)%></span>
                 <span class="font-weight-bold"><%= data[i].departureTime%></span>
                 <span class="font-weight-bold"><%= data[i].price%> €</span>
             </li>
