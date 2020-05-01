@@ -11,7 +11,7 @@ var date = ["2018-11-20","2018-11-21","2018-11-22","2018-11-23","2018-11-24"]
 router.get('/',function(req, res, next) {
   res.render('login');
 });
-
+/* POST sign up. */
 router.post('/sign-up', async function(req,res,next){
 try{
   var searchUser = await userModel.findOne({
@@ -45,7 +45,7 @@ try{
   }
 })
 
-
+/*  POST sign in. */
 router.post('/sign-in', async function(req,res,next){
 
   var searchUser = await userModel.findOne({
@@ -63,15 +63,8 @@ router.post('/sign-in', async function(req,res,next){
     res.render('login')
   }
 })
-
+/*  POST research. */
 router.post('/research', async function (req, res, next) {
-  
-  //var data = req.session.result = {
-  //  departure: newJourneySave.departure,
-  //  arrival: newJourneySave.arrival,
-  //}
-  //console.log(data)
-
   console.log(req.body)
 
   var data = await journeyModel.find({
@@ -84,8 +77,6 @@ router.post('/research', async function (req, res, next) {
 })
 
 router.get('/resultats', async function (req, res, next) {
-  
-
   res.render("resultats")
 })
 
