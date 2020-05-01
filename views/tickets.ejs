@@ -32,30 +32,24 @@
                 <span class="font-weight-bold"><%= data[i].departureTime%></span>
                 <span class="font-weight-bold"><%= data[i].price%> €</span>
             </li>
-          <% var totalCmd = data[i].price + totalCmd;
-          console.log(totalCmd) %>
-          <% } %>
+            <% var totalCmd = data[i].price + totalCmd; %>
+            
+          </ul>
+            <% } %>
             <li class="tabtrips list-group-item d-flex justify-content-between align-items-center border-0">
               <span class="font-weight-bold">Total</span>
               <span class="text"><%= totalCmd %>€</span>
           </li>
-          </ul>
-            <div class="d-flex justify-content-end">
-              <button type="submit" class="btn btn-danger mb-2 col-1 d-flex justify-content-center">Confirm</button>
-            </div>
-            
-      
+          <div class="d-flex justify-content-end">
+            <button type="submit" class="btn btn-danger mb-2 col-1 d-flex justify-content-center">Confirm</button>
+           </div>
+           
       </div>
   
         </div>
       </div>
   
-            
-  
-          
-        
   </div>
-
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
