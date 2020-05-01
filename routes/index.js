@@ -91,21 +91,26 @@ router.get('/resultats', async function (req, res, next) {
     price: Number(req.query.price),
   })
   
-  console.log('bonjour', req.query)
+  //console.log('bonjour', req.query)
   res.render("tickets", {data: req.session.data})
 })
 
 router.get('/tickets', async function (req, res, next) {
-    
-    //console.log(data)
-    //req.session.departure = req.query.departure,
-    //req.session.arrival = req.query.arrival,
-    //req.session.date = req.query.birthday,
-    //req.session.departureTime = req.query.departureTime,
-    //req.session.price = req.query.price,
+  
+  req.session.data = []
 
-
-  res.render("tickets",)
+  for( var i=0; i < req.session.data.length; i++){
+    req.session.data.push({
+      departure: req.query.departure,
+      arrival: req.query.arrival,
+      date: req.query.date,
+      departureTime: req.query.departureTime,
+      price: Number(req.query.price),
+  })
+}
+  
+  console.log('bonjour', req.session.data)
+  res.render("tickets", {data: req.session.data})
 })
 
 
